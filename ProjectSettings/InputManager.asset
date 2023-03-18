@@ -45,13 +45,13 @@ InputManager:
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 3
-    dead: 0.1
+    gravity: 1
+    dead: 0
     sensitivity: 3
     snap: 1
-    invert: 1
+    invert: 0
     type: 2
-    axis: 4
+    axis: 3
     joyNum: 1
   - serializedVersion: 3
     m_Name: Look Vertical
@@ -61,12 +61,12 @@ InputManager:
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 3
-    dead: 0.1
+    gravity: 1
+    dead: 0
     sensitivity: 3
     snap: 1
     invert: 1
     type: 2
-    axis: 3
+    axis: 4
     joyNum: 1
   m_UsePhysicalKeys: 0
