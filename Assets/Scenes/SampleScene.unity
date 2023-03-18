@@ -282,10 +282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ef7298dfe6bd845a35e8caf9604842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  reticleRadius: 5
-  threshold: 0.1
-  inputClampAmount: 0.5
+  moveSpeed: 7
+  recticleDistance: 3
+  cameraUnitDistance: 0.5
+  cameraMoveTime: 0.05
+  lookThreshold: 0.1
+  moveThreshold: 0.1
   reticle: {fileID: 0}
 --- !u!212 &1064074023
 SpriteRenderer:
