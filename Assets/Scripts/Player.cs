@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+
+    // TODO - could be useful: //https://answers.unity.com/questions/1350081/xbox-one-controller-mapping-solved.html    
     // Handle player look direction and camera movement.
     void Look() {
-   
-        // reticle = transform.Find("reticle").gameObject;
-        //https://answers.unity.com/questions/1350081/xbox-one-controller-mapping-solved.html
+        reticle = transform.Find("reticle").gameObject;
+        SpriteRenderer reticleSprite = reticle.GetComponent<SpriteRenderer>();
         float horizontalLook = Input.GetAxis("Look Horizontal");
         float verticalLook = Input.GetAxis("Look Vertical");
         
@@ -53,12 +53,16 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(horizontalLook) > lookThreshold || Mathf.Abs(verticalLook) > lookThreshold){
             // Calculate where we want to aim using the joystick
             Vector3 aimDir = (Vector2.right * horizontalLook) + (Vector2.up * verticalLook);
-            // Debug.Log(aimDir);
-            // Where the reticle is going to sit
+
+            // Show the sprite
+            reticleSprite.enabled = true;
+
+            // set its pos
             Vector2 reticlePosition = transform.position + (aimDir * recticleDistance);
+            reticle.transform.position = reticlePosition;
             
             // Show our aim direction
-            Debug.DrawLine(transform.position, reticlePosition, Color.green, 0);
+            // Debug.DrawLine(transform.position, reticlePosition, Color.green, 0);
 
             // Smoothly move the camera to some position between the reticle and the player.
             Camera mainCam = Camera.main;
@@ -67,6 +71,9 @@ public class Player : MonoBehaviour
 
             Vector3 camVelocity = new Vector3();
             mainCam.transform.position = Vector3.SmoothDamp(mainCam.transform.position, camTargetPos3, ref camVelocity, cameraMoveTime);
+        } else {
+            // Only show the reticle when we're getting player input 
+            reticleSprite.enabled = false;
         }
     }
 
